@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/app_name"
+    android:packageNames="com.outlook.ulibte.sbdimmer.MainActivity"
+    android:accessibilityEventTypes="typeAllMask"
+    android:accessibilityFlags="flagDefault"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:notificationTimeout="100"
+    android:canRetrieveWindowContent="true"
+
+    />
+
+    <!-- Comments
+
+        android:accessibilityFeedbackType="feedbackGeneric"
+        android:accessibilityFlags="flagDefault"
+        android:canPerformGestures="true"
+        android:canRetrieveWindowContent="true"
+
+        android:description="@string/accessibility_service_description"
+        android:packageNames="com.outlook.ulibte.nbdimmer"
+        android:accessibilityFlags="flagDefault"
+        android:accessibilityFeedbackType="feedbackGeneric"
+        android:canRetrieveWindowContent="false"
+        android:settingsActivity="com.outlook.ulibte.nbdimmer.MainActivity"
+
+    ......................................................................
+    android:description="@string/accessibility_service_description"
+    Short description of the accessibility serivce purpose or behavior.
+    Must be a reference to another resource, in the form "@[+][package:]type:name" or to a theme attribute in the form "?[package:][type:]name".
+    .............................................................................
+
+    android:packageNames="com.example.android.sampleapp1,com.example.android.sampleapp2"
+    Comma separated package names from which this serivce would like to receive events (leave out for all packages). android.accessibilityservice.AccessibilityService.setServiceInfo(android.accessibilityservice.AccessibilityServiceInfo).
+    Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+    This may also be a reference to a resource (in the form "@[package:]type:name") or theme attribute (in the form "?[package:][type:]name") containing a value of this type.
+    .............................................................................
+
+    android:accessibilityEventTypes="typeAllMask"
+    The event types this service would like to receive as specified in AccessibilityEvent. This setting can be changed at runtime by calling android.accessibilityservice.AccessibilityService.setServiceInfo(android.accessibilityservice.AccessibilityServiceInfo).
+
+    Must be one or more (separated by '|') of the following constant values.
+
+    Constant	Value	Description
+    typeViewClicked	0x00000001	Receives TYPE_VIEW_CLICKED events.
+    typeViewLongClicked	0x00000002	Receives TYPE_VIEW_LONG_CLICKED events.
+    typeViewSelected	0x00000004	Receives TYPE_VIEW_SELECTED events.
+    typeViewFocused	0x00000008	Receives TYPE_VIEW_FOCUSED events.
+    typeViewTextChanged	0x00000010	Receives TYPE_VIEW_TEXT_CHANGED events.
+    typeWindowStateChanged	0x00000020	Receives TYPE_WINDOW_STATE_CHANGED events.
+    typeNotificationStateChanged	0x00000040	Receives TYPE_NOTIFICATION_STATE_CHANGED events.
+    typeViewHoverEnter	0x00000080	Receives TYPE_VIEW_HOVER_ENTER events.
+    typeViewHoverExit	0x00000100	Receives TYPE_VIEW_HOVER_EXIT events.
+    typeTouchExplorationGestureStart	0x00000200	Receives TYPE_TOUCH_EXPLORATION_GESTURE_START events.
+    typeTouchExplorationGestureEnd	0x00000400	Receives TYPE_TOUCH_EXPLORATION_GESTURE_END events.
+    typeWindowContentChanged	0x00000800	Receives TYPE_WINDOW_CONTENT_CHANGED events.
+    typeViewScrolled	0x000001000	Receives TYPE_VIEW_SCROLLED events.
+    typeViewTextSelectionChanged	0x000002000	Receives TYPE_VIEW_TEXT_SELECTION_CHANGED events.
+    typeAllMask	0xffffffff	Receives TYPES_ALL_MASK i.e. all events.
+    .............................................................................
+
+    android:accessibilityFlags="flagDefault"
+    Additional flags as specified in AccessibilityServiceInfo. This setting can be changed at runtime by calling android.accessibilityservice.AccessibilityService.setServiceInfo(android.accessibilityservice.AccessibilityServiceInfo).
+
+    Must be one or more (separated by '|') of the following constant values.
+
+    Constant	Value	Description
+    flagDefault	0x00000001	Has flag DEFAULT
+    flagIncludeNotImportantViews	0x00000002	Has flag FLAG_INCLUDE_NOT_IMPORTANT_VIEWS
+    flagRequestTouchExplorationMode	0x00000004	Has flag FLAG_REQUEST_TOUCH_EXPLORATION_MODE
+    .............................................................................
+
+    android:accessibilityFeedbackType="feedbackSpoken"
+    The feedback types this serivce provides as specified in AccessibilityServiceInfo. This setting can be changed at runtime by calling android.accessibilityservice.AccessibilityService.setServiceInfo(android.accessibilityservice.AccessibilityServiceInfo).
+
+    Must be one or more (separated by '|') of the following constant values.
+
+    Constant	Value	Description
+    feedbackSpoken	0x00000001	Provides FEEDBACK_SPOKEN feedback.
+    feedbackHaptic	0x00000002	Provides FEEDBACK_HAPTIC feedback.
+    feedbackAudible	0x00000004	Provides FEEDBACK_AUDIBLE feedback.
+    feedbackVisual	0x00000008	Provides FEEDBACK_VISUAL feedback.
+    feedbackGeneric	0x00000010	Provides FEEDBACK_GENERIC feedback.
+    feedbackAllMask	0xffffffff	Provides FEEDBACK_ALL_MASK feedback.
+    .............................................................................
+
+    android:notificationTimeout="100"
+    The minimal period in milliseconds between two accessibility events of the same type are sent to this serivce. This setting can be changed at runtime by calling android.accessibilityservice.AccessibilityService.setServiceInfo(android.accessibilityservice.AccessibilityServiceInfo).
+
+    Must be an integer value, such as "100".
+
+    This may also be a reference to a resource (in the form "@[package:]type:name") or theme attribute (in the form "?[package:][type:]name") containing a value of this type.
+    .............................................................................
+
+    android:canRetrieveWindowContent="true"
+    Flag whether the accessibility service wants to be able to retrieve the active window content. This setting cannot be changed at runtime.
+
+    Must be a boolean value, either "true" or "false".
+
+    This may also be a reference to a resource (in the form "@[package:]type:name") or theme attribute (in the form "?[package:][type:]name") containing a value of this type.
+    .............................................................................
+
+    android:settingsActivity="com.example.android.accessibility.ServiceSettingsActivity"
+    Component name of an activity that allows the user to modify the settings for this service. This setting cannot be changed at runtime.
+
+    Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+
+    This may also be a reference to a resource (in the form "@[package:]type:name") or theme attribute (in the form "?[package:][type:]name") containing a value of this type.
+    .............................................................................
+    -->
