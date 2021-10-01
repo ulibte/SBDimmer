@@ -15,9 +15,8 @@ class AccessibilityServiceSBDimmer: AccessibilityService() {
     private lateinit var mSharedPreferenceNBDimmer: SharedPreferences
 
     private fun getDimAmount(): Float {
-        return mSharedPreferenceNBDimmer.getFloat("alpha", 0.5f)
+        return mSharedPreferenceNBDimmer.getFloat("dimAmount", 0.5f)
     }
-    //tentar contexto de outro lugar, testar da onde vem o contexto
 
     override fun onServiceConnected() {
         super.onServiceConnected()
@@ -36,7 +35,6 @@ class AccessibilityServiceSBDimmer: AccessibilityService() {
         layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT
         layoutParams.gravity = Gravity.TOP
         layoutParams.dimAmount = getDimAmount()
-        //layoutParams.alpha = 0.5f
 
         val inflater: LayoutInflater = LayoutInflater.from(this)
         inflater.inflate(R.layout.overlay_filter, mLayout)

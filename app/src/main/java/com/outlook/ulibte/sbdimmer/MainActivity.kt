@@ -1,15 +1,13 @@
 package com.outlook.ulibte.sbdimmer
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
+import android.widget.Button
 import android.widget.EditText
-import android.content.SharedPreferences
-
-
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,24 +18,22 @@ class MainActivity : AppCompatActivity() {
         val sbDimmerPref = applicationContext.getSharedPreferences("SBDIMMER_PREF", Context.MODE_PRIVATE)
         val prefEditor = sbDimmerPref.edit()
 
-        val etAlphaNumber: EditText = findViewById(R.id.etFilterAlphaNumber)
-        etAlphaNumber.addTextChangedListener(object: TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            }
+        val etDimNumber: EditText = findViewById(R.id.etDimNumber)
+        val bConfirm: Button = findViewById(R.id.bConfirm)
+        val tvShowDimNumber: TextView = findViewById(R.id.tvShowDimNumber)
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            }
+        tvShowDimNumber.text = sbDimmerPref.getFloat("dimAmount", 0.5f).toString()
 
-            override fun afterTextChanged(s: Editable?) {
-                val alphaInput: Float? = s.toString().toFloatOrNull()
-                if(alphaInput == null){
-                    Log.i("tagBosta", "Alpha input == null")
-                }else if (alphaInput <= 1.0){
-                    prefEditor.putFloat("alpha", alphaInput)
-                    prefEditor.apply()
-                    Log.i("tagBosta", sbDimmerPref.getFloat("alpha", 0.5f).toString() + " Alpha depois de editar")
-                }
+        bConfirm.setOnClickListener {
+            val dimNumber: Float? = etDimNumber.text.toString().toFloatOrNull()
+
+            if(dimNumber != null && dimNumber <= 0.9f){
+                prefEditor.putFloat("dimAmount", dimNumber)
+                prefEditor.apply()
+                Toast.makeText(this, "Confirmou", Toast.LENGTH_SHORT).show()
+                tvShowDimNumber.text = dimNumber.toString()
+                Log.i("tagBosta", sbDimmerPref.getFloat("dimAmount", 0.5f).toString() + " dimAmount after editing")
             }
-        })
+        }
     }
 }
