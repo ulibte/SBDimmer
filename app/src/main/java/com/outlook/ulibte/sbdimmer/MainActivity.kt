@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val sbDimmerPref = getSharedPreferences("SBDIMMER_PREF", Context.MODE_PRIVATE)
+        val sbDimmerPref = applicationContext.getSharedPreferences("SBDIMMER_PREF", Context.MODE_PRIVATE)
         val prefEditor = sbDimmerPref.edit()
 
         val etAlphaNumber: EditText = findViewById(R.id.etFilterAlphaNumber)

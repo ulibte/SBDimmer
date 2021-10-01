@@ -2,6 +2,7 @@ package com.outlook.ulibte.sbdimmer
 
 import android.accessibilityservice.AccessibilityService
 import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.PixelFormat
 import android.util.Log
 import android.view.Gravity
@@ -11,16 +12,18 @@ import android.view.accessibility.AccessibilityEvent
 import android.widget.FrameLayout
 
 class AccessibilityServiceSBDimmer: AccessibilityService() {
-    /*private var mSharedPreferenceNBDimmer = applicationContext.getSharedPreferences("SBDIMMER_PREF", Context.MODE_WORLD_READABLE)
+    private lateinit var mSharedPreferenceNBDimmer: SharedPreferences
 
-    private fun getAlpha(): Float {
+    private fun getDimAmount(): Float {
         return mSharedPreferenceNBDimmer.getFloat("alpha", 0.5f)
-    }*/
+    }
     //tentar contexto de outro lugar, testar da onde vem o contexto
 
     override fun onServiceConnected() {
         super.onServiceConnected()
-        /*Log.i("tagBosta", getAlpha().toString() + " Alpha no onServiceConnected")*/
+
+        mSharedPreferenceNBDimmer = applicationContext.getSharedPreferences("SBDIMMER_PREF", Context.MODE_PRIVATE)
+        Log.i("tagBosta", getDimAmount().toString() + " Alpha no onServiceConnected")
         Log.i("tagBosta", "onServiceConékitedi")
 
         val wm: WindowManager = getSystemService(WINDOW_SERVICE) as WindowManager
@@ -32,7 +35,7 @@ class AccessibilityServiceSBDimmer: AccessibilityService() {
         layoutParams.width = WindowManager.LayoutParams.WRAP_CONTENT
         layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT
         layoutParams.gravity = Gravity.TOP
-        layoutParams.dimAmount = 0.5f
+        layoutParams.dimAmount = getDimAmount()
         //layoutParams.alpha = 0.5f
 
         val inflater: LayoutInflater = LayoutInflater.from(this)
