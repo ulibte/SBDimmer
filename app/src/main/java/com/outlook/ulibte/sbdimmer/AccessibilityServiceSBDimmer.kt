@@ -16,6 +16,7 @@ class AccessibilityServiceSBDimmer: AccessibilityService() {
     private fun getAlpha(): Float {
         return mSharedPreferenceNBDimmer.getFloat("alpha", 0.5f)
     }*/
+    //tentar contexto de outro lugar, testar da onde vem o contexto
 
     override fun onServiceConnected() {
         super.onServiceConnected()
@@ -27,7 +28,7 @@ class AccessibilityServiceSBDimmer: AccessibilityService() {
         val layoutParams: WindowManager.LayoutParams = WindowManager.LayoutParams()
         layoutParams.type = WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY
         layoutParams.format = PixelFormat.TRANSLUCENT
-        layoutParams.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE// bitwise que adiciona os valores
+        layoutParams.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND or WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM or WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE // bitwise que adiciona os valores
         layoutParams.width = WindowManager.LayoutParams.WRAP_CONTENT
         layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT
         layoutParams.gravity = Gravity.TOP
