@@ -9,6 +9,7 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.WindowManager
 import android.view.accessibility.AccessibilityEvent
+import android.widget.Button
 import android.widget.FrameLayout
 
 class AccessibilityServiceSBDimmer: AccessibilityService() {
@@ -30,15 +31,19 @@ class AccessibilityServiceSBDimmer: AccessibilityService() {
         val layoutParams: WindowManager.LayoutParams = WindowManager.LayoutParams()
         layoutParams.type = WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY
         layoutParams.format = PixelFormat.TRANSLUCENT
-        layoutParams.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND or WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM or WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE // bitwise que adiciona os valores
+        layoutParams.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND or WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE// or WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM  // bitwise que adiciona os valores
         layoutParams.width = WindowManager.LayoutParams.WRAP_CONTENT
         layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT
-        layoutParams.gravity = Gravity.TOP
+        layoutParams.gravity = Gravity.BOTTOM
         layoutParams.dimAmount = getDimAmount()
+        //layoutParams.softInputMode = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING
 
         val inflater: LayoutInflater = LayoutInflater.from(this)
         inflater.inflate(R.layout.overlay_filter, mLayout)
         wm.addView(mLayout, layoutParams)
+
+
+
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
