@@ -5,21 +5,18 @@
     android:accessibilityEventTypes="typeAllMask"
     android:accessibilityFeedbackType="feedbackGeneric"
     android:notificationTimeout="100"
-    android:canRetrieveWindowContent="true"
+    android:canRetrieveWindowContent="false"
+    android:settingsActivity="com.outlook.ulibte.nbdimmer.MainActivity"
 
     />
 
     <!-- Comments
 
+        android:description="@string/app_name"
+        android:packageNames="com.outlook.ulibte.sbdimmer"
+        android:accessibilityEventTypes="typeAllMask"
         android:accessibilityFeedbackType="feedbackGeneric"
-        android:accessibilityFlags="flagDefault"
-        android:canPerformGestures="true"
-        android:canRetrieveWindowContent="true"
-
-        android:description="@string/accessibility_service_description"
-        android:packageNames="com.outlook.ulibte.nbdimmer"
-        android:accessibilityFlags="flagDefault"
-        android:accessibilityFeedbackType="feedbackGeneric"
+        android:notificationTimeout="100"
         android:canRetrieveWindowContent="false"
         android:settingsActivity="com.outlook.ulibte.nbdimmer.MainActivity"
 

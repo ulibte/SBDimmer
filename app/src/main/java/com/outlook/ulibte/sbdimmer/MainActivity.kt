@@ -15,24 +15,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val sbDimmerPref = applicationContext.getSharedPreferences("SBDIMMER_PREF", Context.MODE_PRIVATE)
-        val prefEditor = sbDimmerPref.edit()
+        val sbDimmerPref = SharedPreferenceSBDimmer(this)
 
         val etDimNumber: EditText = findViewById(R.id.etDimNumber)
         val bConfirm: Button = findViewById(R.id.bConfirm)
         val tvShowDimNumber: TextView = findViewById(R.id.tvShowDimNumber)
 
-        tvShowDimNumber.text = sbDimmerPref.getFloat("dimAmount", 0.5f).toString()
+        tvShowDimNumber.text = sbDimmerPref.getDimAmount().toString()
 
         bConfirm.setOnClickListener {
             val dimNumber: Float? = etDimNumber.text.toString().toFloatOrNull()
 
             if(dimNumber != null && dimNumber <= 0.9f){
-                prefEditor.putFloat("dimAmount", dimNumber)
-                prefEditor.apply()
+                sbDimmerPref.setDimAmount(dimNumber)
                 Toast.makeText(this, "Confirmou", Toast.LENGTH_SHORT).show()
                 tvShowDimNumber.text = dimNumber.toString()
-                Log.i("tagBosta", sbDimmerPref.getFloat("dimAmount", 0.5f).toString() + " dimAmount after editing")
+                Log.i("tagBosta", sbDimmerPref.getDimAmount().toString() + " dimAmount after editing")
             }
         }
     }
