@@ -1,8 +1,11 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 apply plugin: 'kotlin-android'
+apply plugin: 'com.android.application'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdk 30
@@ -43,6 +46,20 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation "androidx.core:core-ktx:1.6.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation 'com.google.dagger:hilt-android:2.39.1'
+    kapt 'com.google.dagger:hilt-compiler:2.39.1'
+
+    // For instrumentation tests
+    androidTestImplementation  'com.google.dagger:hilt-android-testing:2.39.1'
+    kaptAndroidTest 'com.google.dagger:hilt-compiler:2.39.1'
+
+    // For local unit tests
+    testImplementation 'com.google.dagger:hilt-android-testing:2.39.1'
+    kaptTest 'com.google.dagger:hilt-compiler:2.39.1'
 }
 repositories {
+}
+kapt {
+    correctErrorTypes true
 }
