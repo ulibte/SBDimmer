@@ -2,9 +2,9 @@
 <accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
     android:description="@string/app_name"
     android:packageNames="com.outlook.ulibte.sbdimmer"
-    android:accessibilityEventTypes="typeAllMask"
+    android:accessibilityEventTypes=""
     android:accessibilityFeedbackType="feedbackGeneric"
-    android:notificationTimeout="100"
+    android:notificationTimeout="10000"
     android:canRetrieveWindowContent="false"
     android:settingsActivity="com.outlook.ulibte.nbdimmer.MainActivity"
 

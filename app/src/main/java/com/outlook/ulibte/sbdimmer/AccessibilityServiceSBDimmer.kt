@@ -8,16 +8,19 @@ import android.view.LayoutInflater
 import android.view.WindowManager
 import android.view.accessibility.AccessibilityEvent
 import android.widget.FrameLayout
+import com.outlook.ulibte.sbdimmer.data.SharedPreferenceSBDimmer
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class AccessibilityServiceSBDimmer: AccessibilityService() {
-    private lateinit var sbDimmerPref: SharedPreferenceSBDimmer
+    @Inject lateinit var sbDimmerPref: SharedPreferenceSBDimmer
 
     private fun getDimAmount() = sbDimmerPref.getDimAmount()
 
     override fun onServiceConnected() {
         super.onServiceConnected()
 
-        sbDimmerPref = SharedPreferenceSBDimmer(this)
         Log.i("tagBosta", getDimAmount().toString() + " dimAmount no onServiceConnected")
 
         val wm: WindowManager = getSystemService(WINDOW_SERVICE) as WindowManager
