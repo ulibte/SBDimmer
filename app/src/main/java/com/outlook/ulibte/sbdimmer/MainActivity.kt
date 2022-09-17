@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
             if(dimNumber != null && dimNumber <= 0.9f){
                 sbDimmerPref.setDimAmount(dimNumber)
-                Toast.makeText(this, "Confirmou", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Ok", Toast.LENGTH_SHORT).show()
                 tvShowDimNumber.text = dimNumber.toString()
                 Log.i("tagBosta", sbDimmerPref.getDimAmount().toString() + " dimAmount after editing")
             }
