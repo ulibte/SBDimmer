@@ -51,7 +51,7 @@ class AccessibilityServiceSBDimmer: AccessibilityService() {
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
         Log.i("tagEventoBosta", event.toString())
         if(event?.eventType == AccessibilityEvent.TYPE_VIEW_CLICKED){
-            Log.i("tagEventoMerda", "CLICOU NA TELA SEU BOSTA")
+            Log.i("tagEventoMerda", "tapped on the screen")
         }
     }
 
