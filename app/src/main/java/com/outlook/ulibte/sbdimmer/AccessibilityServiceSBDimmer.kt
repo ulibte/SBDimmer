@@ -41,7 +41,7 @@ class AccessibilityServiceSBDimmer: AccessibilityService() {
     override fun onServiceConnected() {
         super.onServiceConnected()
 
-        Log.i("tagBosta", getDimAmount().toString() + " dimAmount no onServiceConnected")
+        Log.i("accessibilityTag", getDimAmount().toString() + " dimAmount no onServiceConnected")
 
         theInflatedView = inflater.inflate(R.layout.overlay_filter, null)
         windowManager.addView(theInflatedView, layoutParams)
@@ -49,9 +49,9 @@ class AccessibilityServiceSBDimmer: AccessibilityService() {
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
-        Log.i("tagEventoBosta", event.toString())
+        Log.i("accessibilityTag", event.toString())
         if(event?.eventType == AccessibilityEvent.TYPE_VIEW_CLICKED){
-            Log.i("tagEventoMerda", "tapped on the screen")
+            Log.i("accessibilityTag", "tapped on the screen")
         }
     }
 
