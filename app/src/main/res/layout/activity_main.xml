@@ -10,7 +10,7 @@
         android:id="@+id/bIniciar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Iniciar serviço de acessibilidade bosta"
+        android:text="Iniciar serviço de acessibilidade"
         app:backgroundTint="#E91E63"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
