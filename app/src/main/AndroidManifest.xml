@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.outlook.ulibte.sbdimmer">
+    package="com.outlook.ulibte.sbdimmer"
+    >
 
     <application
-        android:name=".myApplication"
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -23,7 +24,7 @@
             android:name=".AccessibilityServiceSBDimmer"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
             android:windowSoftInputMode="adjustNothing"
-            >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
