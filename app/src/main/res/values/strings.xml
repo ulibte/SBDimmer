@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">SBDimmer</string>
+    <string name="app_name">SB Dimmer</string>
+    <string name="disable">Disable</string>
+    <string name="enable">Enable</string>
+    <string name="slider_that_dims_the_screen" translatable="false">Slider that dims the screen</string>
 </resources>

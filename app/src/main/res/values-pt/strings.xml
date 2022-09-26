@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SB Dimmer</string>
+    <string name="disable">Desativar</string>
+    <string name="enable">Ativar</string>
+</resources>

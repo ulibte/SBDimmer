@@ -21,15 +21,37 @@
         android:id="@+id/dimmerSlider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/slider_that_dims_the_screen"
         android:valueFrom="0.0"
-        android:valueTo="0.9"
         app:labelBehavior="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvShowDimNumber"
-        android:contentDescription="Slider that dims the screen"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/tvShowDimNumber" />
+
+    <Button
+        android:id="@+id/buttonOff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/red"
+        android:text="@string/disable"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonOn"
+        app:layout_constraintEnd_toStartOf="@+id/buttonOn"
+        app:layout_constraintTop_toTopOf="@+id/buttonOn" />
+
+    <Button
+        android:id="@+id/buttonOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/green"
+        android:text="@string/enable"
+
+        app:cornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
