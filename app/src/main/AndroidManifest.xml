@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <service
-            android:name=".AccessibilityServiceSBDimmer"
+            android:name=".data.AccessibilityServiceSBDimmer"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
             android:windowSoftInputMode="adjustNothing"
             android:exported="true">

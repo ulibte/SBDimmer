@@ -4,7 +4,7 @@ plugins {
 
     // hilt
     id 'kotlin-kapt'
-    id "dagger.hilt.android.plugin"
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -58,9 +58,12 @@ dependencies {
     // For local unit tests
     testImplementation 'com.google.dagger:hilt-android-testing:2.44'
     kaptTest 'com.google.dagger:hilt-compiler:2.44'
+
+    // by viewModels()
+    implementation 'androidx.fragment:fragment-ktx:1.5.3'
+
 }
-repositories {
-}
+
 kapt {
     correctErrorTypes true
 }
