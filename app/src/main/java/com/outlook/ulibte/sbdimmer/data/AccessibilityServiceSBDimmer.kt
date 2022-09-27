@@ -2,7 +2,6 @@ package com.outlook.ulibte.sbdimmer.data
 
 import android.accessibilityservice.AccessibilityService
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -45,18 +44,12 @@ class AccessibilityServiceSBDimmer: AccessibilityService() {
         }
     }
 
-    override fun onInterrupt() {
-        TODO("Not yet implemented")
-    }
+    override fun onInterrupt() {}
 
-    override fun onRebind(intent: Intent?) {
-        super.onRebind(intent)
-    }
-
-    override fun onUnbind(intent: Intent?): Boolean {
+    override fun onDestroy() {
         windowManager.removeView(theInflatedView)
         mySharedPref.runningStatus = false
-        return super.onUnbind(intent)
+        super.onDestroy()
     }
 
     private fun getLayoutParamsWithDimmer(dimmer: Float): WindowManager.LayoutParams{
@@ -66,7 +59,7 @@ class AccessibilityServiceSBDimmer: AccessibilityService() {
             width = WindowManager.LayoutParams.WRAP_CONTENT
             height = WindowManager.LayoutParams.WRAP_CONTENT
             flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND or WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE  // bitwise que adiciona os valores
-            dimAmount = mySharedPref.dimAmount
+            dimAmount = dimmer
         }
     }
 }
