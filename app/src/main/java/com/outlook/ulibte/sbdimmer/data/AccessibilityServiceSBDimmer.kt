@@ -34,8 +34,6 @@ class AccessibilityServiceSBDimmer: AccessibilityService() {
 
         theInflatedView = inflater.inflate(R.layout.overlay_filter, null)
         windowManager.addView(theInflatedView, getLayoutParamsWithDimmer(mySharedPref.dimAmount))
-
-        mySharedPref.runningStatus = true
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
@@ -48,7 +46,6 @@ class AccessibilityServiceSBDimmer: AccessibilityService() {
 
     override fun onDestroy() {
         windowManager.removeView(theInflatedView)
-        mySharedPref.runningStatus = false
         super.onDestroy()
     }
 

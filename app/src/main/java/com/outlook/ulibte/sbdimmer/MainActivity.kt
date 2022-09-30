@@ -15,6 +15,10 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+    companion object{
+        private const val TAG = "MyMainActivity"
+    }
+
     private val viewModel: MainViewModel by viewModels()
 
     private val tvShowDimNumber: TextView by lazy {
@@ -44,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         dimmerSlider.valueTo = viewModel.maxDimmerValue
+        // if its null then the slider will be on middle
         dimmerSlider.value = viewModel.dimAmount.value ?: (viewModel.maxDimmerValue / 2F)
         dimmerSlider.addOnChangeListener { _, value, _ ->
             viewModel.setDimer(value)
@@ -52,7 +57,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        setButtonsStatus(viewModel.dimStatus, buttonOn, buttonOff)
+        val id = MainViewModel.ACCESSIBILITY_SERVICE_ID
+        setButtonsStatus(viewModel.accessibilityIsRunning(this, id),
+            buttonOn,
+            buttonOff)
     }
 
     private fun goToAccessibilitySettings(){
@@ -60,10 +68,10 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun setButtonsStatus(status: Boolean,
+    private fun setButtonsStatus(running: Boolean,
                                  buttonOn: Button,
                                  buttonOff: Button){
-        when(status){
+        when(running){
             true -> {
                 buttonOn.isEnabled = false
                 buttonOn.backgroundTintList = ContextCompat.getColorStateList(this, R.color.grey)

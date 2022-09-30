@@ -16,9 +16,4 @@ class MySharedPreference @Inject constructor(@ApplicationContext appContext: Con
     var dimAmount: Float
         get() = mySharedPreference.getFloat(DIM_AMOUNT, 0.4f)
         set(value) = mySharedPreference.edit().putFloat(DIM_AMOUNT, value).apply()
-
-    var runningStatus: Boolean
-        get() = mySharedPreference.getBoolean(RUNNING_STATUS, false)
-        set(value) = mySharedPreference.edit().putBoolean(RUNNING_STATUS, value).apply()
-
 }
