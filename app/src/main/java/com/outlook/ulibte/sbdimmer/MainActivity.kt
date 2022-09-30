@@ -41,10 +41,8 @@ class MainActivity : AppCompatActivity() {
         buttonOn.setOnClickListener { goToAccessibilitySettings() }
         buttonOff.setOnClickListener { goToAccessibilitySettings() }
 
-        viewModel.dimAmount.observe(this){
-            // max_dimmer is 0.8 and to make it pretty I convert to 100
-            val value: Float = it * 125 // 0.8 * 125 == 100%
-            tvShowDimNumber.text = "${value.toInt()}%"
+        viewModel.dimPercentage.observe(this){
+            tvShowDimNumber.text = it
         }
 
         dimmerSlider.valueTo = viewModel.maxDimmerValue

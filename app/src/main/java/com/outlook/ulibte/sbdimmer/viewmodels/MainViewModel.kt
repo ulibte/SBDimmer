@@ -6,6 +6,7 @@ import android.view.accessibility.AccessibilityManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.outlook.ulibte.sbdimmer.data.MySharedPreference
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -26,6 +27,13 @@ class MainViewModel @Inject constructor(
     private val _dimAmount = MutableLiveData(invertDimValue(sharedPreference.dimAmount))
     val dimAmount: LiveData<Float>
         get() = _dimAmount
+
+    val dimPercentage: LiveData<String> = Transformations.map(dimAmount){
+        // max_dimmer is 0.8 and to make it pretty I convert to 100
+        val value: Float = it * 125 // 0.8 * 125 == 100%
+
+        "${value.toInt()}%"
+    }
 
     fun setDimer(number: Float){
         val invertedNumber: Float = invertDimValue(number)
